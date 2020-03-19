@@ -1,26 +1,25 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rally Test Live Chat Page</title>
     <script type='text/javascript' src='https://c.la1-c1cs-ia2.salesforceliveagent.com/content/g/js/48.0/deployment.js'></script>
     <script type='text/javascript'>
-    liveagent.init('https://d.la1-c1cs-ia2.salesforceliveagent.com/chat', '572440000008dXG', '00DP0000003pQ5f');
+      liveagent.init('https://d.la1-c1cs-ia2.salesforceliveagent.com/chat', '572440000008dXG', '00DP0000003pQ5f');
+      if (!window._laq) { window._laq = []; }
+        window._laq.push(function(){
+          liveagent.showWhenOnline('573q000000000Ig', document.getElementById('liveagent_button_online_573q000000000Ig'));
+          liveagent.showWhenOffline('573q000000000Ig', document.getElementById('liveagent_button_offline_573q000000000Ig'));
+        });
     </script>
+  </head>
+  <body>
+    <h2 title="Rally Test Live Chat Page">Rally Test Live Chat Page</h2>
 
-<body>
+    <img id="liveagent_button_online_573440000008fsz" style="display: block; border: 0px none; cursor: pointer" onclick="liveagent.startChatWithWindow('573q000000000Ig','chat-window')" src="https://rajdev-rally-support.cs4.force.com/customer/resource/1525518306000/ChatAvailable" alt="Online"/>
+    <img id="liveagent_button_offline_573440000008fsz" style="display: none; border: 0px none; " src="https://rajdev-rally-support.cs4.force.com/customer/resource/1525518306000/ChatUnavailable" alt="Offline"/>
 
-<h2 title="I'm a header">Rally Test Live Chat Page</h2>
+    <iframe name="chat-window" height="500" width="400" style="float:right;"/>
 
-
-    Online: <img id="liveagent_button_online_573440000008fsz" onclick="liveagent.startChatWithWindow('573440000008fsz','chat-window')" src="https://rajdev-rally-support.cs4.force.com/customer/resource/1525518306000/ChatAvailable" alt="Online"/>
-
-    Offline: <img id="liveagent_button_offline_573440000008fsz" style="display: none; border: 0px none; " src="https://rajdev-rally-support.cs4.force.com/customer/resource/1525518306000/ChatUnavailable" alt="Offline"/>
-<script type="text/javascript">
-if (!window._laq) { window._laq = []; }
-window._laq.push(function(){
-
-  liveagent.showWhenOnline('573440000008fsz', document.getElementById('liveagent_button_online_573440000008fsz'));
-liveagent.showWhenOffline('573440000008fsz', document.getElementById('liveagent_button_offline_573440000008fsz'));
-});</script>
-
-<iframe name="chat-window" height="500" width="400" style="float:right;"/>
-</body>
+  </body>
 </html>
