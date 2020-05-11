@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Salesforce Chat</title>
     <style type='text/css'>
         .embeddedServiceHelpButton .helpButton .uiButton {
@@ -72,6 +73,16 @@
     </div>
 </body>
 		
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
@@ -98,16 +109,16 @@
 
 		embedded_svc.init(
 			'https://rallyhealth--chriskim.my.salesforce.com',
-			'https://chriskim-rally-support.cs2.force.com/rally',
+			'https://chriskim-rally-support.cs2.force.com/customer',
 			gslbBaseURL,
 			'00DR00000020UPu',
-			'CK_Test_Group_3',
+			'CK_Embedded_Test',
 			{
 				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
-				deploymentId: '572R00000008U8x',
-				buttonId: '573R0000000ChYx',
+				deploymentId: '572R00000008U8i',
+				buttonId: '573R0000000ChYT',
 				baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'CK_Test_Group_3',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IR00000008OfTMAU_17201314a5f',
 				isOfflineSupportEnabled: false
 			}
 		);
