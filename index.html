@@ -181,7 +181,7 @@
 
     function waitForAddedNode(params) {
         new MutationObserver(function(mutations) {
-            var el = document.getElementById(params.id);
+            var el = document.querySelector(params.target);
             if (el) {
                 this.disconnect();
                 params.done(el);
@@ -193,7 +193,7 @@
     }
 
     waitForAddedNode({
-        id: 'message',
+        target: 'button .uiButton .helpButtonDisabled',
         parent: document.querySelector("button.uiButton.helpButtonDisabled"),
         recursive: false,
         done: function(el) {
