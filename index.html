@@ -162,13 +162,12 @@
             return;
         }
 
-        document.querySelector(".embeddedServiceHelpButton").setAttribute("style", "display:block;");
-
         if (chatButtonDisabled) {
             document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton").setAttribute("style", "background:#7B7D7E!important;");
         } else {
             document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton").setAttribute("style", "background:#269F96!important;");
         }
+        document.querySelector(".embeddedServiceHelpButton").setAttribute("style", "display:block;");
     }
     waitForElementToDisplay();
 </script>
