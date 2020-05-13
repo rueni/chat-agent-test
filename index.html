@@ -173,7 +173,7 @@
             window.setTimeout(waitForElementToDisplay,500);
             return;
         }
-	let elementToUpdate = document.querySelector(".embeddedServiceHelpButton .helpButton .uiButton");
+	let elementToUpdate = document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton");
         if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
             elementToUpdate.setAttribute("style", "background:#7B7D7E!important;;");
         } else {
