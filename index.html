@@ -166,18 +166,37 @@
     // };
 
 
-    function addObserverForDomInsertion() {
-        const chatButton = document.querySelector("button.uiButton.helpButtonDisabled");
-        const config = {childList: true};
-        if(!chatButton) {
-            window.setTimeout(addObserverForDomInsertion,500);
-            return;
-        } else if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
-            document.querySelector(".embeddedServiceHelpButton .helpButton .uiButton").style.backgroundColor = '#7B7D7E';
-        }
-        addObserverForDomInsertion.observe(chatButton,config);
-    }
-    addObserverForDomInsertion();
+    // function addObserverForDomInsertion() {
+    //     const chatButton = document.querySelector("button.uiButton.helpButtonDisabled");
+    //     const config = {childList: true};
+    //     if(!chatButton) {
+    //         window.setTimeout(addObserverForDomInsertion,500);
+    //         return;
+    //     } else if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
+    //         document.querySelector(".embeddedServiceHelpButton.helpButton.uiButton").style.backgroundColor = '#7B7D7E';
+    //     }
+    //     addObserverForDomInsertion.observe(chatButton,config);
+    // }
+    // addObserverForDomInsertion();
+
+    // select the target node
+    var target = document.querySelector("button.uiButton.helpButtonDisabled");
+
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            console.log('mutation', mutation);
+        });
+    });
+
+    // configuration of the observer:
+    var config = { attributes: true, childList: true, characterData: true }
+
+    // pass in the target node, as well as the observer options
+    observer.observe(target, config);
+
+    // later, you can stop observing
+    observer.disconnect();
 </script>
 </body>
 </html>
