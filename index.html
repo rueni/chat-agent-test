@@ -5,117 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Salesforce Chat</title>
     <style type='text/css'>
+     .embeddedServiceHelpButton .helpButton .uiButton {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0 12px;
+        height: 46px;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 23px;
+        line-height: 1;
+        background: #269F96;
+        font-size: .875em;
+        color: #fff;
+        font-weight: normal;
+        text-shadow: none;
+        font-family: "Helvetica Neue";
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+      }
+
+      @media only screen and (min-width: 48em) {
+        .embeddedServiceHelpButton .helpButton {
+          position: fixed;
+          bottom: 0
+        }
+
         .embeddedServiceHelpButton .helpButton .uiButton {
-            background-color: #7B7D7E;
-            font-family: "Helvetica Neue", sans-serif;
-        }
-        .embeddedServiceHelpButton .helpButton .uiButton:focus {
-            outline: 1px solid #7B7D7E;
-        }
-        .file_transfer_selected .liveAgentFileNameLabel {
-            margin-left: 10px;
-            line-height: 40px;
-            border: 1px solid #E2E8ED;
-            box-sizing: border-box;
-            border-radius: 3px;
-            background-color: #E8E8E8;
-            padding: 0px 10px 3px 30px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: block;
-            height: 40px;
-            word-wrap: normal;
-            max-width: calc(100% - 60px);
-            margin-top: 10px;
-            display: inline-block;
-            white-space: nowrap;
+          border-radius: 8px 8px 0 0;
         }
 
-        .messageArea.dynamicResizeTextOneRow.file_upload_requested {
-            height: calc(100% - 160px);
+        .embeddedServiceHelpButton .helpButton .uiButton:hover::before,
+        .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
+          border-radius: 8px 8px 0 0
         }
+      }
 
-        .file_transfer_selected .liveAgentFileDragArea {
-            text-align: left;
-            background-color: #D0D0D0;
-            height: 60px;
-            margin-right: -67px;
-            display: inline-block;
-            width: 100%;
+      @media only screen and (min-width:48em) {
+        .embeddedServiceHelpButton {
+          background-color: transparent;
         }
-
-        .liveAgentFileDragArea {
-            position: absolute;
-            background-color: #DDF1C9;
-            height: 60px;
-            left: 0;
-            right: -6px;
-            text-align: center;
-            line-height: 60px;
-            font-size: 14px;
-        }
-
-        .file_transfer_selected .liveAgentFileCancelButton {
-            position: absolute;
-            left: 0px;
-            margin-top: 11.4px;
-            margin-left: 16px;
-            z-index: 999;
-            /* background-image: url(../images/icon_close.png); */
-            background-image: url(https://4bs.la1-c1-frf.salesforceliveagent.com/content/images/icon_close.png);
-            background-color: #E8E8E8;
-            background-position: 0 0;
-            width: 17px;
-            height: 17px;
-            border: none;
-            color: transparent;
-            cursor: pointer;
-            padding-right: 12px;
-        }
-
-        .liveAgentFileCancelButton {
-            margin-left: 20px;
-            background-image: url(https://4bs.la1-c1-frf.salesforceliveagent.com/content/images/icon_close.png);
-            background-color: #E8E8E8;
-            height: 17px;
-            border: none;
-            cursor: pointer;
-            padding-right: 12px;
-        }
-
-        .file_transfer_selected .liveAgentFileSendButton:before {
-            font-family: 'embeddedserviceiconfont';
-            content: '\E90B';
-            speak: none;
-            -webkit-font-smoothing: antialiased;
-            font-size: 1.25rem;
-            cursor: pointer;
-         }
-
-        #fileSendButton {
-            position: absolute;
-            top: 18px;
-            border: none;
-            background: transparent;
-            right: 14px;
-            float: right;
-        }
-
-        .liveAgentFileCancelButton:hover {
-            background-position: -30px 0;
-        }
+      }
     </style>
 </head>
 
 <body>
-    
-<a href="#" onclick="initChat()">Click Here to Chat </a>
-    
+        
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-		//embedded_svc.settings.defaultMinimizedText = '...' //(Defaults to Chat with an Expert)
+
+		embedded_svc.settings.defaultMinimizedText = 'Chat with Us' //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
@@ -132,7 +86,6 @@
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-
 		embedded_svc.init(
 			'https://rallyhealth--chriskim.my.salesforce.com',
 			'https://chriskim-rally-support.cs2.force.com/customer',
@@ -149,20 +102,16 @@
 			}
 		);
 	};
-    var showButton = false;
-    function initChat(){
-        debugger
-        embedded_svc.settings.displayHelpButton = !showButton; //Or false
-       if (!window.embedded_svc) {
-            var s = document.createElement('script');
-            s.setAttribute('src', 'https://rallyhealth--chriskim.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-            s.onload = function() {
-                initESW(null);
-            };
-            document.body.appendChild(s);
-        } else {
-            initESW('https://service.force.com');
-        }
+
+   if (!window.embedded_svc) {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://rallyhealth--chriskim.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.onload = function() {
+            initESW(null);
+        };
+        document.body.appendChild(s);
+    } else {
+        initESW('https://service.force.com');
     }
 </script>
 </body>
