@@ -150,7 +150,7 @@
         initESW('https://service.force.com');
     }
 
-    window.onload = (event) => {
+    document.addEventListener('DOMContentLoaded', () => {
         let chatButton = document.querySelector("button.uiButton.helpButtonDisabled");
         if (chatButton) {
             if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
