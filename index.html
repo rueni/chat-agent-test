@@ -172,8 +172,7 @@
             window.setTimeout(addObserverIfDesiredNodeAvailable,500);
             return;
         } else if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
-                document.querySelector(".embeddedServiceHelpButton.helpButton.uiButton").style.backgroundColor = '#7B7D7E';
-            }
+            document.querySelector(".embeddedServiceHelpButton.helpButton.uiButton").style.backgroundColor = '#7B7D7E';
         }
         composeObserver.observe(chatButton,config);
     }
