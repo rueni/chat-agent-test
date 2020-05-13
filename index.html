@@ -150,15 +150,16 @@
     }
 
     function waitForElementToDisplay() {
-        const chatButtonWrapper = document.querySelector("button.uiButton.helpButtonDisabled");
+        const chatButtonDisabled = document.querySelector("button.uiButton.helpButtonDisabled");
+        const chatButtonEnabled = document.querySelector("button.uiButton.helpButtonEnabled");
         const config = {childList: true};
-        if(!chatButtonWrapper) {
+        if(!chatButtonDisabled && !chatButtonEnabled) {
             window.setTimeout(waitForElementToDisplay,500);
             return;
         }
 
         let chatButton = document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton");
-        if (chatButtonWrapper.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
+        if (chatButtonDisabled) {
             chatButton.setAttribute("style", "background:#7B7D7E!important;");
         } else {
             chatButton.setAttribute("style", "background:#269F96!important;");
