@@ -179,24 +179,27 @@
     // }
     // addObserverForDomInsertion();
 
-    // select the target node
-    var target = document.querySelector("button.uiButton.helpButtonDisabled");
-
-    // create an observer instance
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            console.log('mutation', mutation);
+    function waitForAddedNode(params) {
+        new MutationObserver(function(mutations) {
+            var el = document.getElementById(params.id);
+            if (el) {
+                this.disconnect();
+                params.done(el);
+            }
+        }).observe(params.parent || document, {
+            subtree: !!params.recursive,
+            childList: true,
         });
+    }
+
+    waitForAddedNode({
+        id: 'message',
+        parent: document.querySelector("button.uiButton.helpButtonDisabled"),
+        recursive: false,
+        done: function(el) {
+            console.log(el);
+        }
     });
-
-    // configuration of the observer:
-    var config = { attributes: true, childList: true, characterData: true }
-
-    // pass in the target node, as well as the observer options
-    observer.observe(target, config);
-
-    // later, you can stop observing
-    observer.disconnect();
 </script>
 </body>
 </html>
