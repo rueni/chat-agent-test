@@ -15,7 +15,7 @@
         box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
         border-radius: 23px;
         line-height: 1;
-        background: #269F96!important;
+        /* background: #269F96!important; */
         font-size: .875em;
         color: #fff;
         font-weight: normal;
@@ -172,8 +172,12 @@
         if(!chatButton) {
             window.setTimeout(waitForElementToDisplay,500);
             return;
-        } else if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
-            document.querySelector(".embeddedServiceHelpButton .helpButton .uiButton").style.backgroundColor = '#7B7D7E';
+        }
+
+        if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
+            document.querySelector(".embeddedServiceHelpButton.helpButton.uiButton").setAttribute("style", "background:#7B7D7E!important;;");
+        } else {
+            document.querySelector(".embeddedServiceHelpButton.helpButton.uiButton").setAttribute("style", "background:#269F96!important;;");
         }
     }
     waitForElementToDisplay();
