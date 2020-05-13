@@ -186,7 +186,7 @@
                 this.disconnect();
                 params.done(el);
             }
-        }).observe(params.parent || document, {
+        }).observe(document, {
             subtree: !!params.recursive,
             childList: true,
         });
@@ -194,7 +194,6 @@
 
     waitForAddedNode({
         target: 'button .uiButton .helpButtonDisabled',
-        parent: document.querySelector("button.uiButton.helpButtonDisabled"),
         recursive: false,
         done: function(el) {
             console.log(el);
