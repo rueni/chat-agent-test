@@ -164,7 +164,7 @@
 
         document.querySelector(".embeddedServiceHelpButton").setAttribute("style", "display:block;");
 
-        if (chatButton.childNodes[1].childNodes[1].innerText == 'Agent Offline') {
+        if (chatButtonDisabled) {
             document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton").setAttribute("style", "background:#7B7D7E!important;");
         } else {
             document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton").setAttribute("style", "background:#269F96!important;");
