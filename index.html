@@ -6,39 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Customer Support</title>
     <style type='text/css'>
-        .embeddedServiceHelpButton {
-            display: none !important;
-        }
-        .embeddedServiceHelpButton .helpButton .uiButton {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0 12px;
-            height: 46px;
-            box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
-            border-radius: 23px;
-            line-height: 1;
-            font-size: .875em;
-            color: #fff;
-            font-weight: normal;
-            text-shadow: none;
-            font-family: "Helvetica Neue";
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: justify;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: row;
-            -ms-flex-direction: row;
-            flex-direction: row;
-        }
         .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent {
             color: #4A4A4A !important;
             background-color: #F0F1F2 !important;
@@ -136,28 +103,6 @@
         } else {
             initESW('https://service.force.com');
         }
-
-        waitForElementToDisplay = () => {
-            const chatButtonDisabled = document.querySelector("button.uiButton.helpButtonDisabled");
-            const chatButtonEnabled = document.querySelector("button.uiButton.helpButtonEnabled");
-            const config = {
-                childList: true
-            };
-            if (!chatButtonDisabled && !chatButtonEnabled) {
-                window.setTimeout(waitForElementToDisplay, 500);
-                return;
-            }
-
-            if (chatButtonDisabled) {
-                document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton")
-                .setAttribute("style","background:#7B7D7E!important;");
-            } else {
-                document.querySelector(".embeddedServiceHelpButton>.helpButton>.uiButton")
-                .setAttribute("style","background:#269F96!important;");
-            }
-            document.querySelector("div.embeddedServiceHelpButton").setAttribute("style", "display:block!important;");
-        }
-        waitForElementToDisplay();
     </script>
 </body>
 
