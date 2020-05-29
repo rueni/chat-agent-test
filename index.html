@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Customer Support</title>
     <style type='text/css'>
+        /*Agent chat bubble */
         .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.agent.plaintextContent {
-            color: #4A4A4A !important;
-            background-color: #F0F1F2 !important;
-            border-radius: 3px !important;
+            color: #4A4A4A!important;
+            background-color: #F0F1F2!important;
+            border-radius: 3px!important;
             float: left;
         }
+
+        /*Visitor chat bubble */
         .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
-            background-color: #FFFFFF !important;
-            color: #4A4A4A !important;
-            border: 1px solid #888888 !important;
+            background-color: #FFFFFF!important;
+            color: #4A4A4A!important;
+            border: 1px solid #888888!important;
             margin-left: auto;
         }
+
+        /*Chat visitor chat input wrapper */
         .embeddedServiceLiveAgentStateChatInputFooter.chasitorInputWrapper {
             position: relative;
             width: 100%;
@@ -25,8 +30,10 @@
             background-color: #ededed;
             border-radius: 0 0 8px 8px;
         }
+
+        /*Visitor chat input */
         .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
-            font-family: "Helvetica Neue", 'Arial', sans-serif;
+            font-family: "Helvetica Neue",'Arial',sans-serif;;
             font-weight: 300;
             background: #fff;
             border: 1px solid #fff;
@@ -36,7 +43,7 @@
             overflow: hidden;
             width: 100%;
             height: 100%;
-            color: #666666 !important;
+            color: #666666!important;
             border-radius: 4px;
             padding: 8px;
             box-sizing: border-box;
@@ -45,47 +52,98 @@
             -moz-appearance: none;
             appearance: none
         }
-
-        @media only screen and (min-width: 48em) {
-            .embeddedServiceHelpButton .helpButton {
-                position: fixed;
-                bottom: 0
-            }
-            .embeddedServiceHelpButton .helpButton .uiButton {
-                border-radius: 8px 8px 0 0;
-            }
-            .embeddedServiceHelpButton .helpButton .uiButton:hover::before,
-            .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
-                border-radius: 8px 8px 0 0
-            }
-        }
-        @media only screen and (min-width:48em) {
-            .embeddedServiceHelpButton {
-                background-color: transparent;
-            }
-        }
     </style>
-</head>
-
-<body>
+    <body>
     <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
-        var initESW = function (gslbBaseURL) {
+        var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
-    		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-    		embedded_svc.settings.defaultMinimizedText = 'Chat with Us' //(Defaults to Chat with an Expert)
-    		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-    		embedded_svc.settings.entryFeature = 'LiveAgent';
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+            embedded_svc.addEventHandler("onHelpButtonClick", function(data) {
+                console.log("onHelpButtonClick event was fired.");
+            });
+
+            embedded_svc.addEventHandler("onChatRequestSuccess", function(data) {
+                console.log("onChatRequestSuccess event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatEstablished", function(data) {
+                console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChasitorMessage", function(data) {
+                console.log("onChasitorMessage event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onAgentMessage", function(data) {
+                console.log("onAgentMessage event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
+                console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+                console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onAgentLeftConference", function(data) {
+                console.log("onAgentLeftConference event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatConferenceEnded", function(data) {
+                console.log("onChatConferenceEnded event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatTransferSuccessful", function(data) {
+                console.log("onChatTransferSuccessful event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatEndedByChasitor", function(data) {
+                console.log("onChatEndedByChasitor event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onChatEndedByAgent", function(data) {
+                console.log("onChatEndedByAgent event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onQueueUpdate", function(data) {
+                console.log("onQueueUpdate event was fired. liveAgentSessionKey was " + data.liveAgentSessionKey + "and queuePosition was " + data.queuePosition);
+            });
+
+            embedded_svc.addEventHandler("onIdleTimeoutOccurred", function(data) {
+                console.log("onIdleTimeoutOccurred event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onConnectionError", function(data) {
+                console.log("onConnectionError event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+
+            embedded_svc.addEventHandler("onClickSubmitButton", function(data) {
+                console.log("onClickSubmitButton event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+            });
+            embedded_svc.addEventHandler("onInviteAccepted", function(data) {
+                console.log("onInviteAccepted event was fired.");
+            });
+
+            embedded_svc.addEventHandler("onInviteRejected", function(data) {
+                console.log("onInviteRejected event was fired.");
+            });
+
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
 
             embedded_svc.init(
-                'https://rallyhealth--rallyfull.my.salesforce.com',
-                'https://rallyfull-rally-support.cs4.force.com/customer',
+                'https://rallyhealth--chriskim.my.salesforce.com',
+                'https://chriskim-rally-support.cs2.force.com/customer',
                 gslbBaseURL,
-                '00DP0000003rccg',
-                'RA_Chat', {
+                '00DR00000020UPu',
+                'RA_Chat',
+                {
                     baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
-                    deploymentId: '572P00000008PyP',
-                    buttonId: '573P0000000CcLA',
+                    deploymentId: '572R00000008U8i',
+                    buttonId: '573R0000000ChYT',
                     baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
                     eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IR00000008OfTMAU_17201314a5f',
                     isOfflineSupportEnabled: false
@@ -95,8 +153,8 @@
 
         if (!window.embedded_svc) {
             var s = document.createElement('script');
-            s.setAttribute('src', 'https://rallyhealth--rallyfull.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-            s.onload = function () {
+            s.setAttribute('src', 'https://rallyhealth--chriskim.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
                 initESW(null);
             };
             document.body.appendChild(s);
@@ -104,6 +162,6 @@
             initESW('https://service.force.com');
         }
     </script>
-</body>
+    </body>
 
 </html>
