@@ -11,6 +11,8 @@
         var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
             embedded_svc.settings.externalStyles = ['RA_Chat_Styles'];
 
             embedded_svc.addEventHandler("onHelpButtonClick", function(data) {
@@ -84,20 +86,17 @@
                 console.log("onInviteRejected event was fired.");
             });
 
-            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-            embedded_svc.settings.entryFeature = 'LiveAgent';
-
             embedded_svc.init(
-                'https://rallyhealth--chriskim.my.salesforce.com',
-                'https://chriskim-rally-support.cs2.force.com/customer',
+                'https://rallyhealth--rallyfull.my.salesforce.com',
+                'https://rallyfull-rally-support.cs64.force.com/customer',
                 gslbBaseURL,
-                '00DR00000020UPu',
+                '00D0q000000Ddh2',
                 'RA_Chat',
                 {
-                    baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
-                    deploymentId: '572R00000008U8i',
-                    buttonId: '573R0000000ChYT',
-                    baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
+                    baseLiveAgentContentURL: 'https://c.la1-c1cs-ord.salesforceliveagent.com/content',
+                    deploymentId: '5720q000000CaVE',
+                    buttonId: '5730q000000CaU1',
+                    baseLiveAgentURL: 'https://d.la1-c1cs-ord.salesforceliveagent.com/chat',
                     eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IR00000008OfTMAU_17201314a5f',
                     isOfflineSupportEnabled: false
                 }
@@ -106,7 +105,7 @@
 
         if (!window.embedded_svc) {
             var s = document.createElement('script');
-            s.setAttribute('src', 'https://rallyhealth--chriskim.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.setAttribute('src', 'https://rallyhealth--rallyfull.my.salesforce.com/embeddedservice/5.0/esw.min.js');
             s.onload = function() {
                 initESW(null);
             };
