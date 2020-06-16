@@ -9,22 +9,22 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.externalStyles = ['RA_Chat_Styles'];
-        embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+        embedded_svc.settings.externalStyles = ['RA_Chat_Styles'];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 		embedded_svc.init(
-			'https://rallyhealth--rallyfull.my.salesforce.com',
-			'https://rallyfull-rally-support.cs64.force.com/customer',
+			'https://rallyhealth.my.salesforce.com',
+			'https://support.werally.com/customer',
 			gslbBaseURL,
-			'00D0q000000Ddh2',
+			'00DE0000000Hosc',
 			'RA_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-ord.salesforceliveagent.com/content',
-				deploymentId: '5720q000000CaVE',
-				buttonId: '5730q000000CaU1',
-				baseLiveAgentURL: 'https://d.la1-c1cs-ord.salesforceliveagent.com/chat',
+				baseLiveAgentContentURL: 'https://c.la3-c1-ia2.salesforceliveagent.com/content',
+				deploymentId: '5722R0000004TZm',
+				buttonId: '5732R0000004WQa',
+				baseLiveAgentURL: 'https://d.la3-c1-ia2.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IR00000008OfTMAU_17201314a5f',
 				isOfflineSupportEnabled: false
 			}
@@ -33,7 +33,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://rallyhealth--rallyfull.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://rallyhealth.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
