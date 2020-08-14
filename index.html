@@ -86,20 +86,17 @@
             console.log("onInviteRejected event was fired.");
         });
         
-        embedded_svc.addEventHandler("onSettingsCallCompleted", function(data) {
-            console.log("onSettingsCallCompleted event was fired. Agent availability status is " + data.isAgentAvailable ? "online": "offline");
-        });
-		embedded_svc.init(
+        embedded_svc.init(
 			'https://rallyhealth--chriskim.my.salesforce.com',
-			'https://chriskim-rally-support.cs2.force.com/customer',
+			'https://chriskim-rally-support.cs96.force.com/customer',
 			gslbBaseURL,
-			'00DR00000020UPu',
+			'00D1g0000005cfR',
 			'RA_Chat',
 			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia2.salesforceliveagent.com/content',
-				deploymentId: '572R00000008U8i',
-				buttonId: '573R0000000ChYT',
-				baseLiveAgentURL: 'https://d.la1-c1cs-ia2.salesforceliveagent.com/chat',
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-ord.salesforceliveagent.com/content',
+				deploymentId: '5722R0000004TZm',
+				buttonId: '5732R0000004WQa',
+				baseLiveAgentURL: 'https://d.la2-c1cs-ord.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IR00000008OfTMAU_17201314a5f',
 				isOfflineSupportEnabled: false
 			}
