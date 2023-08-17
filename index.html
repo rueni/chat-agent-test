@@ -54,8 +54,31 @@
           HealthSafe_Id__c: "1234567",
           Enterprise_Id__c: "98765432",
           Rally_ID__c: "1234567890",
-          Subject: "I need help",
+          Subject: "I need help"
         };
+
+        embedded_svc.snippetSettingsFile.extraPrechatFormDetails = [
+            {
+              label: "First Name",
+              transcriptFields: ["Pre_Chat_Contact_First_Name__c"],
+            },
+            {
+              label: "Last Name",
+              transcriptFields: ["Pre_Chat_Contact_Last_Name__c"],
+            },
+            {
+              label: "Email",
+              transcriptFields: ["Pre_Chat_Contact_Email_Address__c"],
+            },
+            {
+              label: "Date of Birth",
+              transcriptFields: ["Pre_Chat_Contact_DOB__c"],
+            },
+            {
+              label: "Phone",
+              transcriptFields: ["Pre_Chat_Contact_Phone__c"],
+            },
+        ];
         //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
         //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
