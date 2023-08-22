@@ -60,23 +60,33 @@
         embedded_svc.snippetSettingsFile.extraPrechatFormDetails = [
             {
               label: "First Name",
+              value: "FirstName",
               transcriptFields: ["Pre_Chat_Contact_First_Name__c"],
+              displayToAgent: true
             },
             {
               label: "Last Name",
+              value: "LastName",
               transcriptFields: ["Pre_Chat_Contact_Last_Name__c"],
+              displayToAgent: true
             },
             {
               label: "Email",
+              value: "SuppliedEmail",
               transcriptFields: ["Pre_Chat_Contact_Email_Address__c"],
+              displayToAgent: true
             },
             {
               label: "Date of Birth",
+              value: "Date_Of_Birth_String__c",
               transcriptFields: ["Pre_Chat_Contact_DOB__c"],
+              displayToAgent: true
             },
             {
               label: "Phone",
+              value: "SuppliedPhone",
               transcriptFields: ["Pre_Chat_Contact_Phone__c"],
+              displayToAgent: true
             },
         ];
         //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
