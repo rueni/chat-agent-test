@@ -17,22 +17,33 @@
       .embeddedServiceHelpButton .helpButton .uiButton:focus {
         outline: 1px solid #005290;
       }
+      .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+        background-color: #005290;
+        font-family: "Salesforce Sans", sans-serif;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0);
+      }
+      .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus,
+      .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover,
+      .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:active {
+        background-color: #005290;
+      }
       /* Hide the First and Last Name Fields that have both the classes */
       .embeddedServiceSidebarFormField.inputSplitName {
         display: none !important;
       }
       .plaintextContent.agent.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI {
         border-radius: 0px 8px 8px 8px;
-        background: #FAF8F2;
+        background: #faf8f2;
       }
       .plaintextContent.chasitor.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI {
         border-radius: 8px 0px 8px 8px;
-        border: 1px solid var(--neutral-20, #E5E5E6);
-        background: #FFF;
-        color: var(--theme-charcoal, #4D4D4D);
+        border: 1px solid var(--neutral-20, #e5e5e6);
+        background: #fff;
+        color: var(--theme-charcoal, #4d4d4d);
       }
-      .embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext .agentIconColor0 {
-        background-color: #FF612B;
+      .embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext
+        .agentIconColor0 {
+        background-color: #ff612b;
       }
       @font-face {
         font-family: "Salesforce Sans";
