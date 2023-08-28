@@ -12,7 +12,7 @@
     <style type="text/css">
       .embeddedServiceHelpButton .helpButton .uiButton {
         background-color: #005290;
-        font-family: sans-serif, "Arial";
+        font-family: "Salesforce Sans", sans-serif;
       }
       .embeddedServiceHelpButton .helpButton .uiButton:focus {
         outline: 1px solid #005290;
@@ -20,6 +20,13 @@
       /* Hide the First and Last Name Fields that have both the classes */
       .embeddedServiceSidebarFormField.inputSplitName {
         display: none !important;
+      }
+      @font-face {
+        font-family: "Salesforce Sans";
+        src: url("https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff")
+            format("woff"),
+          url("https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf")
+            format("truetype");
       }
     </style>
 
@@ -43,6 +50,9 @@
         // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
         // Returns a valid button ID.
         //};
+        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
         //Sets the auto-population of pre-chat form fields
         embedded_svc.settings.prepopulatedPrechatFields = {
@@ -58,36 +68,36 @@
         };
 
         embedded_svc.snippetSettingsFile.extraPrechatFormDetails = [
-            {
-              label: "First Name",
-              value: "FirstName",
-              transcriptFields: ["Pre_Chat_Contact_First_Name__c"],
-              displayToAgent: true
-            },
-            {
-              label: "Last Name",
-              value: "LastName",
-              transcriptFields: ["Pre_Chat_Contact_Last_Name__c"],
-              displayToAgent: true
-            },
-            {
-              label: "Email",
-              value: "SuppliedEmail",
-              transcriptFields: ["Pre_Chat_Contact_Email_Address__c"],
-              displayToAgent: true
-            },
-            {
-              label: "Date of Birth",
-              value: "Date_Of_Birth_String__c",
-              transcriptFields: ["Pre_Chat_Contact_DOB__c"],
-              displayToAgent: true
-            },
-            {
-              label: "Phone",
-              value: "SuppliedPhone",
-              transcriptFields: ["Pre_Chat_Contact_Phone__c"],
-              displayToAgent: true
-            },
+          {
+            label: "First Name",
+            value: "Contact.FirstName",
+            transcriptFields: ["Pre_Chat_Contact_First_Name__c"],
+            displayToAgent: true,
+          },
+          {
+            label: "Last Name",
+            value: "Contact.LastName",
+            transcriptFields: ["Pre_Chat_Contact_Last_Name__c"],
+            displayToAgent: true,
+          },
+          {
+            label: "Email",
+            value: "Case.SuppliedEmail",
+            transcriptFields: ["Pre_Chat_Contact_Email_Address__c"],
+            displayToAgent: true,
+          },
+          {
+            label: "Date of Birth",
+            value: "Case.Date_Of_Birth_String__c",
+            transcriptFields: ["Pre_Chat_Contact_DOB__c"],
+            displayToAgent: true,
+          },
+          {
+            label: "Phone",
+            value: "Case.SuppliedPhone",
+            transcriptFields: ["Pre_Chat_Contact_Phone__c"],
+            displayToAgent: true,
+          },
         ];
         //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
         //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
@@ -122,7 +132,7 @@
           "https://rallyhealth--chriskim.sandbox.my.site.com/customer",
           gslbBaseURL,
           "00DDj0000009RU6",
-          "One_Pass_Chat_Test",
+          "One_Pass_Chat",
           {
             baseLiveAgentContentURL:
               "https://c.la2-c1cs-ia7.salesforceliveagent.com/content",
