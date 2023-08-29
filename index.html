@@ -2,10 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
     <title>Customer Support</title>
   </head>
   <body>
@@ -54,10 +51,7 @@
       }
     </style>
 
-    <script
-      type="text/javascript"
-      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
-    ></script>
+    <script type="text/javascript" src="https://service.force.com/embeddedservice/5.0/esw.min.js"></script>
     <script type="text/javascript">
       var initESW = function (gslbBaseURL) {
         embedded_svc.settings.displayHelpButton = true; //Or false
@@ -67,15 +61,6 @@
         //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
         //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-        // Settings for Chat
-        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-        // Returns a valid button ID.
-        //};
-        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
         //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
         //Sets the auto-population of pre-chat form fields
@@ -93,38 +78,42 @@
 
         embedded_svc.snippetSettingsFile.extraPrechatFormDetails = [
           {
-            label: "First Name",
-            value: "Contact.FirstName",
-            transcriptFields: ["Pre_Chat_Contact_First_Name__c"],
-            displayToAgent: true,
+            "label": "First Name",
+            "transcriptFields": ["Pre_Chat_Contact_First_Name__c"]
           },
           {
-            label: "Last Name",
-            value: "Contact.LastName",
-            transcriptFields: ["Pre_Chat_Contact_Last_Name__c"],
-            displayToAgent: true,
+            "label": "Last Name",
+            "transcriptFields": ["Pre_Chat_Contact_Last_Name__c"]
           },
           {
-            label: "Email",
-            value: "Case.SuppliedEmail",
-            transcriptFields: ["Pre_Chat_Contact_Email_Address__c"],
-            displayToAgent: true,
+            "label": "Email Address",
+            "transcriptFields": ["Pre_Chat_Contact_Email_Address__c"]
           },
           {
-            label: "Date of Birth",
-            value: "Case.Date_Of_Birth_String__c",
-            transcriptFields: ["Pre_Chat_Contact_DOB__c"],
-            displayToAgent: true,
+            "label": "Date of Birth",
+            "transcriptFields": ["Pre_Chat_Contact_DOB__c"]
           },
           {
-            label: "Phone",
-            value: "Case.SuppliedPhone",
-            transcriptFields: ["Pre_Chat_Contact_Phone__c"],
-            displayToAgent: true,
+            "label": "Phone",
+            "transcriptFields": ["Pre_Chat_Contact_Phone__c"]
           },
         ];
-        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+        
+        document.addEventListener(
+          "setCustomField",
+          function(event) {
+            console.log('Inside the Custom Field Listener');
+            console.log('event.detail', event.detail);
+            
+            embedded_svc.settings.extraPrechatFormDetails[ 0 ].value = event.detail.firstName;
+            embedded_svc.settings.extraPrechatFormDetails[ 1 ].value = event.detail.lastName;
+            embedded_svc.settings.extraPrechatFormDetails[ 2 ].value = event.detail.emailAddress;
+            embedded_svc.settings.extraPrechatFormDetails[ 3 ].value = event.detail.dateOfBirth;
+            embedded_svc.settings.extraPrechatFormDetails[ 4 ].value = event.detail.phone;
+            event.detail.callback();
+          },
+            false
+        );
 
         embedded_svc.settings.extraPrechatInfo = [
           {
